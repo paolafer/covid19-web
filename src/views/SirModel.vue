@@ -20,7 +20,10 @@
 
     <div>
       <p class='text-justify' v-html="$t('sirModelParagraph1')"></p>
-
+      <p>
+        <img src="dist/sir.png" class="img float-center" alt="SIR model">
+      </p>
+      <br>
       <p class='text-justify' v-html="$t('sirModelParagraph2')"></p>
 
       <p class='text-center'>
