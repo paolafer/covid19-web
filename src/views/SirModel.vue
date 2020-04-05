@@ -18,6 +18,9 @@
       </div>
     </div>
 
+    <sir-model/>
+    <br>
+
     <div>
       <p class='text-justify' v-html="$t('sirModelParagraph1')"></p>
       <p>
@@ -53,9 +56,6 @@
       </div>
     </div>
 
-    <sir-model/>
-    <hr>
-    <sir-model-comparison/>
   </div>
 </template>
 

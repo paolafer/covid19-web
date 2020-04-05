@@ -55,6 +55,8 @@ const messages = {
         susceptible : 'Susceptible',
         labelDays : "Number of days",
         labelCases : "Number of cases",
+        population : "Population",
+        relative : "Relative result",
 
         //ICU Beds
         icuBedsTitle : "<strong>Covid19</strong> evolution simulator using SEIR model",
@@ -117,6 +119,8 @@ const messages = {
         susceptible : 'Susceptibles',
         labelDays : "Número de días",
         labelCases : "Número de casos",
+        population : "Población",
+        relative : "Resultado relativo",
 
         //ICU Beds
         icuBedsTitle : "Simulador de la evolución del <strong>Covid19</strong> con modelo SEIR",

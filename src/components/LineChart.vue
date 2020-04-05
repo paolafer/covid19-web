@@ -133,6 +133,9 @@
       },
       formatNumber (num) {
         let numString = Math.round(num).toString()
+        if (num <= 1){
+          numString = Math.round(num*100).toString()
+        }
         let numberFormatMapping = [[6, 'm'], [3, 'k']]
         for (let [numberOfDigits, replacement] of numberFormatMapping) {
           if (numString.length > numberOfDigits) {

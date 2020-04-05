@@ -10,8 +10,22 @@
             <label for="rangeT"><h3>T: {{ t }}</h3></label>
             <input type="range" min="1" max="15" step="1" v-model="t" class="slider" id="rangeT">
 
+            <label for="rangeTm"><h3>Tm: {{ tm }}</h3></label>
+            <input type="range" min="0" max="500" step="1" v-model="tm" class="slider" id="rangeTm">
+
+            <label for="rangeQ"><h3>Q: {{ quarantine }}</h3></label>
+            <input type="range" min="0" max="100" step="1" v-model="quarantine" class="slider" id="rangeQ">
+
             <label for="rangeDays"><h3>{{$t('days')}}: {{ days }}</h3></label>
             <input type="range" min="50" max="500" step="10" v-model="days" class="slider" id="rangeDays">
+
+            <label for="rangePop"><h3>N: {{ population }}M</h3></label>
+            <input type="range" min="0" max="100" step="0.1" v-model="population" class="slider" id="rangePop">
+
+            <div class="checkbox">
+              <br>
+              <label><input type="checkbox" v-model="relative">{{$t('relative')}}</label>
+            </div>
           <!--/div -->
         </div>
       </form>
@@ -19,7 +33,7 @@
 
     <div class="col-lg-8 d-lg-block">
       <line-chart key='chart1' chart-id="line-daily" v-if="loaded" :chartData="datasets"
-        :title="''" legend :xlabel="$t('labelDays')" :ylabel="$t('labelCases')"/>
+        :title="''" legend :xlabel="$t('labelDays')" :ylabel="ylabel"/>
     </div>
 
   </div>
@@ -37,9 +51,14 @@
     data () {
       return {
         loaded : true,
-        t : 7,
-        r0 : 3,
+        t : 5,
+        r0 : 3.5,
         days : 100,
+        tm  : 30,
+        quarantine : 50,
+        population: 47,
+        relative : false,
+        ylabel : i18n.t('labelCases'),
 
         datasets : {
           labels: [],
@@ -51,44 +70,81 @@
       locale : function (){
         return i18n.locale
       },
+      // ylabel : function (){
+      //   let result = i18n.t('labelCases')
+      //   if (this.relative){
+      //     result = result + "(%)"
+      //   }
+      //   return result
+      // }
     },
     watch: {
       t: _.debounce(
         function (newvalue, oldvalue) {
-          this.fetchData(this.r0, newvalue, this.days)
+          this.fetchData()
         },
         500),
       r0: _.debounce(
         function (newvalue, oldvalue) {
-          this.fetchData(newvalue, this.t, this.days)
+          this.fetchData()
         },
         500),
       days: _.debounce(
         function (newvalue, oldvalue) {
-          this.fetchData(this.r0, this.t, newvalue)
+          this.fetchData()
+        },
+        500),
+      tm: _.debounce(
+        function (newvalue, oldvalue) {
+          this.fetchData()
+        },
+        500),
+      quarantine: _.debounce(
+        function (newvalue, oldvalue) {
+          this.fetchData()
+        },
+        500),
+      population: _.debounce(
+        function (newvalue, oldvalue) {
+          this.fetchData()
+        },
+        500),
+      relative: _.debounce(
+        function (newvalue, oldvalue) {
+          if (newvalue){
+            this.ylabel = i18n.t('labelCases') + ' (%)'
+          }
+          else{
+            this.ylabel = i18n.t('labelCases')
+          }
+          this.datasets = {labels: [], datasets: []}
+          this.fetchData()
         },
         500),
       locale: function (newvalue, oldvalue) {
-        this.fetchData(this.r0, this.t, this.days)
+        this.fetchData()
       },
     },
     beforeMount() {
-      this.fetchData(this.r0, this.t, this.days)
+      this.fetchData()
     },
     methods: {
-      fetchData: function (r0, t, days) {
-        const baseURI = 'https://kzlecbpuc5.execute-api.us-east-2.amazonaws.com/prod/model'
+      fetchData: function () {
+        const baseURI = 'https://kzlecbpuc5.execute-api.us-east-2.amazonaws.com/prod/testmodel'
         this.$http.post(baseURI, {
-          'model' : 'SIR',
-          'params' : {
-            'R0': r0,
-            'T': t,
-            'days' : days,
+          "model": "SIR",
+          "params": {
+            "R0"      : this.r0,
+            "T"       : this.t,
+            "Tm"      : this.tm,
+            "days"    : this.days,
+            "Q"       : this.quarantine,
+            "N"       : this.population*1000000,
+            "absolute": !this.relative,
           }
         })
         .then((result) => {
           this.loaded = false
-
           this.datasets = {
             labels: result.data.t,
             datasets: [
