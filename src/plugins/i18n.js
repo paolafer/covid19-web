@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import _ from "lodash"
+
+import SirMessages from './translations/SIRModelTexts'
 
 Vue.use(VueI18n);
 
@@ -130,10 +133,25 @@ const messages = {
     }
 };
 
+function loadLocaleMessages () {
+  var toBeAdded = [SirMessages]
+  // Loop over all objects with translations
+  _.map(toBeAdded, function(texts) {
+    // Look over all keys on each object
+    _.keys(texts["en"]).forEach(key => {
+      messages.en[key] = texts.en[key]
+      messages.es[key] = texts.es[key]
+    })
+  });
+
+  return messages
+}
+
 const i18n = new VueI18n({
     locale: 'en', // set locale
     fallbackLocale: 'es', // set fallback locale
-    messages, // set locale messages
+    //messages, // set locale messages
+    messages : loadLocaleMessages()
 });
 
 export default i18n;

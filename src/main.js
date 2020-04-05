@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios'
 import VueRouter from 'vue-router'
+import VueMathjax from 'vue-mathjax'
 
 import SirModel from './views/SirModel.vue'
 import SeirModel from './views/SeirModel.vue'
@@ -16,6 +17,7 @@ import i18n from './plugins/i18n';
 Vue.prototype.$http = axios
 
 Vue.use(VueRouter)
+Vue.use(VueMathjax)
 
 const router = new VueRouter({
   mode: 'history',

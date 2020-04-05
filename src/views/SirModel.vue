@@ -18,6 +18,38 @@
       </div>
     </div>
 
+    <div>
+      <p class='text-justify' v-html="$t('sirModelParagraph1')"></p>
+
+      <p class='text-justify' v-html="$t('sirModelParagraph2')"></p>
+
+      <p class='text-center'>
+      \(\frac{dS}{dt} = - \beta S I\) (1)
+      </p>
+
+      <p class='text-justify' v-html="$t('sirModelParagraph3')"></p>
+
+      <p class='text-center'>
+      \(\frac{dI}{dt} = \frac{\beta S I}{N} - \gamma I\) (2)
+      </p>
+
+      <p class='text-justify' v-html="$t('sirModelParagraph4')"></p>
+
+      <p class='text-center'>
+      \(\frac{dR}{dt} = \gamma R\) (3)
+      </p>
+
+      <p class='text-justify' v-html="$t('sirModelParagraph5')"></p>
+      <p class='text-justify' v-html="$t('sirModelParagraph6')"></p>
+      <p class='text-justify' v-html="$t('sirModelParagraph7')"></p>
+      <p class='text-justify' v-html="$t('sirModelParagraph8')"></p>
+      <p class='text-justify' v-html="$t('sirModelParagraph9')"></p>
+      <!-- <vue-mathjax :formula="''"></vue-mathjax> -->
+      <div v-if="false">
+        <vue-mathjax :formula="locale"></vue-mathjax>
+      </div>
+    </div>
+
     <sir-model/>
     <hr>
     <sir-model-comparison/>
@@ -27,12 +59,21 @@
 <script>
 import SirModel from "../components/SirModel.vue"
 import SirModelComparison from "../components/SirModelComparison.vue"
+import i18n from '../plugins/i18n'
+
+import { VueMathjax } from 'vue-mathjax'
 
 export default {
   name: 'app',
   components: {
     SirModel,
     SirModelComparison,
+    'vue-mathjax': VueMathjax,
   },
+  computed: {
+    locale : function(){
+      return i18n.locale
+    }
+  }
 }
 </script>
