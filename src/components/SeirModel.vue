@@ -32,9 +32,14 @@
       </form>
     </div>
 
-    <div class="col-lg-8 d-lg-block">
-      <line-chart key='chart1' chart-id="line-daily" v-if="loaded" :chartData="datasets"
-        legend :title="''" :xlabel="$t('labelDays')" :ylabel="$t('labelCases')"/>
+    <div class="col-lg-5 d-lg-block">
+      <line-chart key='chart1' chart-id="line-daily1" v-if="loaded" :chartData="datasets1"
+        :title="''" legend :xlabel="$t('labelDays')" :ylabel="ylabel"/>
+    </div>
+
+    <div class="col-lg-5 d-lg-block">
+      <line-chart key='chart2' chart-id="line-daily2" v-if="loaded" :chartData="datasets2"
+        :title="''" legend :xlabel="$t('labelDays')" :ylabel="ylabel"/>
     </div>
 
   </div>
@@ -55,14 +60,18 @@
         ti: 5,
         t : 5,
         r0 : 3.5,
-        days : 100,
+        days : 200,
         tm  : 30,
         quarantine : 50,
         population: 47,
         relative : false,
         ylabel : i18n.t('labelCases'),
 
-        datasets : {
+        datasets1 : {
+          labels: [],
+          datasets: [],
+        },
+        datasets2 : {
           labels: [],
           datasets: [],
         },
@@ -117,7 +126,8 @@
           else{
             this.ylabel = i18n.t('labelCases')
           }
-          this.datasets = {labels: [], datasets: []}
+          this.datasets1 = {labels: [], datasets: []}
+          this.datasets2 = {labels: [], datasets: []}
           this.fetchData()
         },
         500),
@@ -130,8 +140,7 @@
     },
     methods: {
       fetchData: function () {
-        // const baseURI = 'https://kzlecbpuc5.execute-api.us-east-2.amazonaws.com/prod/model'
-        const baseURI = 'http://localhost:3000/model'
+        const baseURI = 'https://kzlecbpuc5.execute-api.us-east-2.amazonaws.com/prod/testmodel'
         this.$http.post(baseURI, {
           'model' : 'SEIR',
           'params' : {
@@ -148,7 +157,7 @@
         .then((result) => {
           this.loaded = false
 
-          this.datasets = {
+          this.datasets1 = {
             labels: result.data.t,
             datasets: [
               {
@@ -165,6 +174,27 @@
                 borderWidth: 1,
                 data: result.data.S
               },
+              {
+                label: i18n.t('recovered'),
+                borderColor: '#00590c',
+                backgroundColor: 'rgba(0, 89, 12, 0.3)',
+                pointBackgroundColor: 'rgba(0,0,0,0)',
+                pointBorderColor: 'rgba(0,0,0,0)',
+                pointHoverBorderColor: '#00590c',
+                pointHoverBackgroundColor: '#000',
+                //pointHoverBackgroundColor: '#fff',
+                pointHoverRadius: 4,
+                pointHitRadius: 10,
+                pointHoverBorderWidth: 1,
+                borderWidth: 1,
+                data: result.data.R
+              }
+            ]
+          }
+
+          this.datasets2 = {
+            labels: result.data.t,
+            datasets: [
               {
                 label: i18n.t('exposed'),
                 borderColor: '#7a7777',
@@ -193,21 +223,6 @@
                 borderWidth: 1,
                 data: result.data.I
               },
-              {
-                label: i18n.t('recovered'),
-                borderColor: '#00590c',
-                backgroundColor: 'rgba(0, 89, 12, 0.3)',
-                pointBackgroundColor: 'rgba(0,0,0,0)',
-                pointBorderColor: 'rgba(0,0,0,0)',
-                pointHoverBorderColor: '#00590c',
-                pointHoverBackgroundColor: '#000',
-                //pointHoverBackgroundColor: '#fff',
-                pointHoverRadius: 4,
-                pointHitRadius: 10,
-                pointHoverBorderWidth: 1,
-                borderWidth: 1,
-                data: result.data.R
-              }
             ]
           }
 
