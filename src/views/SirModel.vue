@@ -21,7 +21,7 @@
     <sir-model/>
     <br>
 
-    <div>
+    <div ref="mathBlock">
       <p class='text-justify' v-html="$t('sirModelParagraph1')"></p>
       <p>
         <img src="dist/sir.png" class="img float-center" alt="SIR model">
@@ -29,7 +29,7 @@
       <br>
       <p class='text-justify' v-html="$t('sirModelParagraph2')"></p>
 
-      <p class='text-center'>
+      <p class='text-center' ref="mathJaxEl">
       \(\frac{dS}{dt} = - \beta S I\) (1)
       </p>
 
@@ -50,10 +50,6 @@
       <p class='text-justify' v-html="$t('sirModelParagraph7')"></p>
       <p class='text-justify' v-html="$t('sirModelParagraph8')"></p>
       <p class='text-justify' v-html="$t('sirModelParagraph9')"></p>
-      <!-- <vue-mathjax :formula="''"></vue-mathjax> -->
-      <div v-if="false">
-        <vue-mathjax :formula="locale"></vue-mathjax>
-      </div>
     </div>
 
   </div>
@@ -68,6 +64,10 @@ import { VueMathjax } from 'vue-mathjax'
 
 export default {
   name: 'app',
+  data : function (){
+    return {
+    }
+  },
   components: {
     SirModel,
     SirModelComparison,
@@ -77,6 +77,27 @@ export default {
     locale : function(){
       return i18n.locale
     }
+  },
+  watch : {
+    locale:  _.debounce(
+      function (newvalue, oldvalue) {
+        this.renderLatex()
+      },
+      500),
+  },
+  methods: {
+    renderLatex () {
+      if (window.MathJax) {
+        window.MathJax.Hub.Queue([
+          'Typeset',
+          window.MathJax.Hub,
+          this.$refs.mathBlock
+        ])
+      }
+    },
+  },
+  mounted (){
+    this.renderLatex()
   }
 }
 </script>
