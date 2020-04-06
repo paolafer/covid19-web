@@ -1,14 +1,14 @@
 const messages = {
     'en': {
       sirModelParagraph1:
-        `Empecemos por asumir que una infección como la COVID-19 es debida a un patógeno que produce la enfermedad durante un cierto periodo de tiempo, seguido de inmunidad.
-        A continuación dividamos la población en tres grupos. "Susceptibles" (S), "Infectados" (I) y "Recuperados" (R).
-        Esta división en tres categorías da nombre al modelo, que se denomina SIR [W. O. Kermack and A. G. McKendrick, Proc. R. Soc. A 115, 700 (1927).].
-        La versión más elemental del modelo ignora la demografía (nacimientos o muertes no relacionados con la epidemia, así como movimientos migratorios) e incluye en la categoría de "Recuperados" a las personas fallecidas.
-        ¿Cómo se mueven los individuos entre estas tres categorías? Una persona susceptible de ser infectada sólo puede quedarse en su casilla o desplazarse a la casilla de "Infectado".
-        A su vez, un infectado sólo puede permanecer como tal un cierto tiempo (al que llamaremos "periodo de infección", T)  y luego se convierte en "Recuperado" (incluso si muere).
-        Otra simplificación útil que podemos añadir es asumir que el periodo de infección (y por tanto también su inversa, una cantidad a la que llamamos tasa de recuperación, \\(\\gamma\\)), es una constante del patógeno en cuestión.
-        En el caso del corona virus, T ~7 días ( \\(\\gamma\\) ~1/7 recuperaciones por día).`,
+        `Let's start assuming that an infection such as COVID-19 is due to a pathogen that produces the illness during a certain amount of time, followed by immunity.
+         Let's now divide the population in three groups. "Susceptibles" (S), "Infectious" (I) and "Recovered" (R).
+         This division is also the name of the model, SIR [W. O. Kermack and A. G. McKendrick, Proc. R. Soc. A 115, 700 (1927).].
+         The simplest version of the model does not take into account demography (births or deaths not related with the epidemic, as well as migration flows) and includes the deceased in the "Recovered" category.
+         How do individuals move within these three categories? A person who is susceptible to be infected can only stay in his box or move to the "Infectious" box.
+         In turn, an infectious can only remain so for a certain amount of time (which we'll call "infection period", T) and, later, becomes "Recovered" (even if he dies).
+         To further simplify, we can assume that the infection period (therefore its inverse, which we call recovery rate  \\(\\gamma\\)), is a constant of the pathogen in question).
+In the coronavirus case, T ~7 days ( \\(\\gamma\\) ~1/7 recoveries per day).`,
       sirModelParagraph2:
         `La figura ilustra la progresión entre las categorías.
         El paso de S a I involucra la transmisión de la enfermedad y es proporcional a tres cantidades:
