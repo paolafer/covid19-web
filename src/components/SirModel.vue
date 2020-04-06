@@ -70,13 +70,6 @@
       locale : function (){
         return i18n.locale
       },
-      // ylabel : function (){
-      //   let result = i18n.t('labelCases')
-      //   if (this.relative){
-      //     result = result + "(%)"
-      //   }
-      //   return result
-      // }
     },
     watch: {
       t: _.debounce(
