@@ -31,8 +31,13 @@
       </form>
     </div>
 
-    <div class="col-lg-8 d-lg-block">
-      <line-chart key='chart1' chart-id="line-daily" v-if="loaded" :chartData="datasets"
+    <div class="col-lg-5 d-lg-block">
+      <line-chart key='chart1' chart-id="line-daily1" v-if="loaded" :chartData="datasets1"
+        :title="''" legend :xlabel="$t('labelDays')" :ylabel="ylabel"/>
+    </div>
+
+    <div class="col-lg-5 d-lg-block">
+      <line-chart key='chart2' chart-id="line-daily2" v-if="loaded" :chartData="datasets2"
         :title="''" legend :xlabel="$t('labelDays')" :ylabel="ylabel"/>
     </div>
 
@@ -60,7 +65,11 @@
         relative : false,
         ylabel : i18n.t('labelCases'),
 
-        datasets : {
+        datasets1 : {
+          labels: [],
+          datasets: [],
+        },
+        datasets2 : {
           labels: [],
           datasets: [],
         },
@@ -124,6 +133,7 @@
     methods: {
       fetchData: function () {
         const baseURI = 'https://kzlecbpuc5.execute-api.us-east-2.amazonaws.com/prod/testmodel'
+        console.log(this.quarantine)
         this.$http.post(baseURI, {
           "model": "SIR",
           "params": {
@@ -138,7 +148,7 @@
         })
         .then((result) => {
           this.loaded = false
-          this.datasets = {
+          this.datasets1 = {
             labels: result.data.t,
             datasets: [
               {
@@ -156,20 +166,6 @@
                 data: result.data.S
               },
               {
-                label : i18n.t('infected'),
-                borderColor: '#bd221c',
-                backgroundColor : 'rgba(189, 34, 28, 0.3)',
-                pointBackgroundColor: 'rgba(0,0,0,0)',
-                pointBorderColor: 'rgba(0,0,0,0)',
-                pointHoverBorderColor: '#bd221c',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverRadius: 4,
-                pointHitRadius: 10,
-                pointHoverBorderWidth: 1,
-                borderWidth: 1,
-                data: result.data.I
-              },
-              {
                 label: i18n.t('recovered'),
                 borderColor: '#00590c',
                 backgroundColor: 'rgba(0, 89, 12, 0.3)',
@@ -184,6 +180,26 @@
                 borderWidth: 1,
                 data: result.data.R
               }
+            ]
+          },
+
+          this.datasets2 = {
+            labels: result.data.t,
+            datasets: [
+              {
+                label : i18n.t('infected'),
+                borderColor: '#bd221c',
+                backgroundColor : 'rgba(189, 34, 28, 0.3)',
+                pointBackgroundColor: 'rgba(0,0,0,0)',
+                pointBorderColor: 'rgba(0,0,0,0)',
+                pointHoverBorderColor: '#bd221c',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverRadius: 4,
+                pointHitRadius: 10,
+                pointHoverBorderWidth: 1,
+                borderWidth: 1,
+                data: result.data.I
+              },
             ]
           }
 
