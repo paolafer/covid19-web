@@ -3,7 +3,6 @@
     <div class="col-lg-2 d-flex d-lg-block">
       <form>
         <div class="form-group form-inline">
-          <!-- div class="slidecontainer" -->
             <label for="rangeR0"><h3>R0: {{ r0 }}</h3></label>
             <input type="range" min="0" max="7" step="0.1" v-model="r0" class="slider" id="rangeR0">
 
@@ -13,9 +12,22 @@
             <label for="rangeTi"><h3>Ti: {{ ti }}</h3></label>
             <input type="range" min="1" max="15" step="1" v-model="ti" class="slider" id="rangeTi">
 
+            <label for="rangeTm"><h3>Tm: {{ tm }}</h3></label>
+            <input type="range" min="0" max="500" step="1" v-model="tm" class="slider" id="rangeTm">
+
+            <label for="rangeQ"><h3>Q: {{ quarantine }}</h3></label>
+            <input type="range" min="0" max="100" step="1" v-model="quarantine" class="slider" id="rangeQ">
+
             <label for="rangeDays"><h3>{{$t('days')}}: {{ days }}</h3></label>
             <input type="range" min="50" max="500" step="10" v-model="days" class="slider" id="rangeDays">
-          <!--/div -->
+
+            <label for="rangePop"><h3>N: {{ population }}M</h3></label>
+            <input type="range" min="0" max="100" step="0.1" v-model="population" class="slider" id="rangePop">
+
+            <div class="checkbox">
+              <br>
+              <label><input type="checkbox" v-model="relative">{{$t('relative')}}</label>
+            </div>
         </div>
       </form>
     </div>
@@ -40,10 +52,15 @@
     data () {
       return {
         loaded : true,
-        t : 7,
         ti: 5,
-        r0 : 3,
-        days : 400,
+        t : 5,
+        r0 : 3.5,
+        days : 100,
+        tm  : 30,
+        quarantine : 50,
+        population: 47,
+        relative : false,
+        ylabel : i18n.t('labelCases'),
 
         datasets : {
           labels: [],
@@ -57,43 +74,75 @@
       },
     },
     watch: {
-      r0: _.debounce(
-        function (newvalue, oldvalue) {
-          this.fetchData(newvalue, this.t, this.ti, this.days)
-        },
-        500),
       t: _.debounce(
         function (newvalue, oldvalue) {
-          this.fetchData(this.r0, newvalue, this.ti, this.days)
+          this.fetchData()
         },
         500),
-      ti: _.debounce(
+      r0: _.debounce(
         function (newvalue, oldvalue) {
-          this.fetchData(this.r0, this.t, newvalue, this.days)
+          this.fetchData()
         },
         500),
       days: _.debounce(
         function (newvalue, oldvalue) {
-          this.fetchData(this.r0, this.t, this.ti, newvalue)
+          this.fetchData()
+        },
+        500),
+      ti: _.debounce(
+        function (newvalue, oldvalue) {
+          this.fetchData()
+        },
+        500),
+      tm: _.debounce(
+        function (newvalue, oldvalue) {
+          this.fetchData()
+        },
+        500),
+      quarantine: _.debounce(
+        function (newvalue, oldvalue) {
+          this.fetchData()
+        },
+        500),
+      population: _.debounce(
+        function (newvalue, oldvalue) {
+          this.fetchData()
+        },
+        500),
+      relative: _.debounce(
+        function (newvalue, oldvalue) {
+          if (newvalue){
+            this.ylabel = i18n.t('labelCases') + ' (%)'
+          }
+          else{
+            this.ylabel = i18n.t('labelCases')
+          }
+          this.datasets = {labels: [], datasets: []}
+          this.fetchData()
         },
         500),
       locale: function (newvalue, oldvalue) {
-        this.fetchData(this.r0, this.t, this.ti, this.days)
+        this.fetchData()
       },
     },
     beforeMount() {
-      this.fetchData(this.r0, this.t, this.ti, this.days)
+      this.fetchData()
     },
     methods: {
-      fetchData: function (r0, t, ti, days) {
-        const baseURI = 'https://kzlecbpuc5.execute-api.us-east-2.amazonaws.com/prod/model'
+      fetchData: function () {
+        // const baseURI = 'https://kzlecbpuc5.execute-api.us-east-2.amazonaws.com/prod/model'
+        const baseURI = 'http://localhost:3000/model'
         this.$http.post(baseURI, {
           'model' : 'SEIR',
           'params' : {
-            'R0': r0,
-            'T': t,
-            'Ti': ti,
-            'days' : days,
+            "R0"      : this.r0,
+            "T"       : this.t,
+            "Ti"       : this.ti,
+            "Tm"      : this.tm,
+            "days"    : this.days,
+            "Q"       : this.quarantine,
+            "N"       : this.population*1000000,
+            "absolute": !this.relative,
           }
         })
         .then((result) => {

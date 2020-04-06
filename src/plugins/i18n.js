@@ -3,6 +3,7 @@ import VueI18n from 'vue-i18n';
 import _ from "lodash"
 
 import SirMessages from './translations/SIRModelTexts'
+import SeirMessages from './translations/SEIRModelTexts'
 
 Vue.use(VueI18n);
 
@@ -138,7 +139,7 @@ const messages = {
 };
 
 function loadLocaleMessages () {
-  var toBeAdded = [SirMessages]
+  var toBeAdded = [SirMessages, SeirMessages]
   // Loop over all objects with translations
   _.map(toBeAdded, function(texts) {
     // Look over all keys on each object
