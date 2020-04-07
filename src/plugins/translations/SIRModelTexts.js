@@ -40,7 +40,7 @@ In the coronavirus case, T ~7 days ( \\(\\gamma\\) ~1/7 recoveries per day).`,
         After 45 days the disease will run out, as most of the population (42 million) has been infected and has recovered (remember that SIR counts deaths as “recovered”).`,
 
       sirModelParagraph8:
-        `If then we set Q at an intermediate value (Q = 50 %) and extend the time scale to 150 days (tf = 150) we can see that the infection curve “flattens out”, the peak is reached much later (at 70 days) and it is lower (half a million).
+        `If then we set Q at an intermediate value (Q = 50 %) and extend the time scale to 150 days (tf = 150) we can see that the infection curve “flattens out”, the peak is reached much later (after 70 days) and it is lower (half a million).
         Even so, at the end the infected fraction of the population remains high (of the order of 70%, we can see it by removing the click of the “absolute” box).`,
 
       sirModelParagraph9:
