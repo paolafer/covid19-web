@@ -1,20 +1,20 @@
 const messages = {
     'en': {
       seirModelParagraph1:
-        `SEIR introduces una categoría más entre Susceptibles e Infectados, que es la de Expuestos.
-        En una enfermedad vírica como la COVID-19, el proceso de transmisión suele iniciarse mediante la inoculación de un pequeño número de patógenos.
-        Sigue un periodo en el que el virus se reproduce rápidamente, bajo el radar del sistema inmune.
-        Durante ese periodo la concentración del virus es demasiado baja para que la persona que lo ha contraído lo transmita  por la vías más frecuentes y por tanto, todavía no infecta a otros (por tanto no nos casa en la categoría I) pero tampoco es ya "susceptible" (puesto que ha contraído el patógeno y en consecuencia no nos cabe en la S).
-        Esto nos lleva a introducir una nueva categoría, que refleje la fracción de la población que llamamos "Expuestos".
-        Asociado con esta categoría tenemos un tiempo de incubación de la enfermedad, Ti, y su recíproco, la tasa de infección, \\(\\sigma = 1/Ti\\).`,
+        `SEIR introduces one more category between Susceptible and Infectious, which is Exposed.
+         In a viral desease such as COVID-19, the transmission process typically begins through the inoculation of a small number of pathogens.
+         A period follows, when the virus replicates fast, under the immune system's radar.
+         During this period the virus concentration is too low for the person who has contracted it to transmit it through the most frequent routes. Therefore, the person still does not infect other people (thus, it doesn't belong to the I category), but it is not "susceptible" anymore (since he has contracted the pathogen, therefore doesn't fit into S).
+         This leads us to introduce a new category, which reflects the fraction of population that we call "Exposed".
+         Along with this category, we have an incubation time of the desease, Ti, and its inverse, the infection rate, \\(\\sigma = 1/Ti\\).`,
       seirModelParagraph2:
-        `En el modelo SIR teníamos tres ecuaciones que describían la transición entre las categorías S, I y R.
-        En el modelo SEIR, tenemos una ecuación más tal como se muestra en la figura.`,
+        ` In the SIR model we had three equations that used to describe the transition within the S, I and R categories.
+          In the SEIR model, we have one more equation, as shown in figure.`,
       seirModelParagraph3:
-        `En este caso, la población de S (susceptibles) disminuye a favor de la población E (expuestos) en lugar de hacerlo directamente a favor de I (infectados).
-        De E a I se pasa mediante una tasa controlada por la inversa del tiempo de incubación (a medida que los expuestos alcanzan dicho tiempo se transforman en infecciosos y saltan de categoría) y de I a R se pasa mediante una tasa controlada por el tiempo de recuperación.
-        SEIR se define por tanto en términos de dos parámetros que ya conocíamos, a saber, la tasa de recuperación (\\(\)\gamma  = 1/T\\), donde T es el tiempo requerido para recuperarse, o lo que es lo mismo el tiempo que se permanece infeccioso) y el producto de la tasa de contacto y la probabilidad de transmisión (\\(\\beta\\)) ---recordemos que el número de reproducción básica se obtiene a partir de estos dos, \\(R_0 = \\beta/\\gamma\\).
-        A estas cantidades añadimos una tercera, la tasa de infección, \\(\sigma\\) (\\(\\sigma = 1/T_i\\), donde \\(T_i\\) es el tiempo de incubación de la enfermedad, con un valor típico de 5 días [Backer JA, Klinkenberg D, Wallinga J. The incubation period of 2019-nCoV infections among travellers from Wuhan, China. medRxiv 2020; published online Jan 28. DOI:10.1101/2020.01.27.20018986 ]).`,
+        `In this case, the population of S (susceptible) decreases in favour of the population of E (exposed), instead of going directly to I (infectious).
+         We pass from E to I through a rate determined by the inverse of the incubation time (when the exposed reach that time, they become infectious and jump into the next category) and from I to R through a rate determined by the recovery time.
+        Therefore, SEIR is defined in terms of two parameters, which we already knew, that is, the recovery time (\\(\)\gamma  = 1/T\\), where T is the time necessary to recover, or, equally, the time during which one stays infectious) and the product of the contact rate and the transmission probability (\\(\\beta\\)) ---remember that the basic reproductive number is obtained from these two,  \\(R_0 = \\beta/\\gamma\\).
+        Let's add a third quantity, the infection rate, \\(\sigma\\) (\\(\\sigma = 1/T_i\\), where \\(T_i\\) is the incubation time of the desease, with a typical value of 5 days [Backer JA, Klinkenberg D, Wallinga J. The incubation period of 2019-nCoV infections among travellers from Wuhan, China. medRxiv 2020; published online Jan 28. DOI:10.1101/2020.01.27.20018986 ]).`,
 
       seirModelParagraph4:
         `The interactive program enables the study of the evolution of the three populations according to T, \\((T_i\\) and \\(R_0\\).
