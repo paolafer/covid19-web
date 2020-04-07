@@ -13,6 +13,10 @@
               <li><span class="font-weight-bold">R0</span>: {{$t('growthRate')}}</li>
               <li><span class="font-weight-bold">T</span>: {{$t('duration')}}</li>
               <li><span class="font-weight-bold">Ti</span>: {{$t('incubation')}}</li>
+              <li><span class="font-weight-bold">Tm</span>: {{$t('mitigationDate')}}</li>
+              <li><span class="font-weight-bold">Q</span>: {{$t('quarantine')}}</li>
+              <li><span class="font-weight-bold">Days</span>: {{$t('daysParam')}}</li>
+              <li><span class="font-weight-bold">N</span>: {{$t('population')}}</li>
             </ul>
           </div>
         </div>

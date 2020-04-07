@@ -68,6 +68,8 @@ const messages = {
         labelCases : "Number of cases",
         population : "Population",
         relative : "Relative result",
+        daysParam: "Total number of days",
+        quarantine: "Quarantine effectiveness (%)",
 
         //ICU Beds
         icuBedsTitle : "<strong>Covid19</strong> evolution simulator using SEIR model",
