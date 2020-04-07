@@ -8,6 +8,7 @@ import SirModel from './views/SirModel.vue'
 import SeirModel from './views/SeirModel.vue'
 import CamasUCI from './views/CamasUCI.vue'
 import Evolution from './views/Evolution.vue'
+import Comunidades from './views/Comunidades.vue'
 import Somos from './views/Somos.vue'
 import Privacidad from './views/Privacidad.vue'
 
@@ -22,13 +23,14 @@ Vue.use(VueMathjax)
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/'          , component: SirModel },
-    { path: '/sir'       , component: SirModel },
-    { path: '/seir'      , component: SeirModel },
-    { path: '/camas'     , component: CamasUCI },
-    { path: '/evolucion' , component: Evolution },
-    { path: '/somos'     , component: Somos },
-    { path: '/privacidad', component: Privacidad },
+    { path: '/'           , component: SirModel },
+    { path: '/sir'        , component: SirModel },
+    { path: '/seir'       , component: SeirModel },
+    { path: '/camas'      , component: CamasUCI },
+    { path: '/evolucion'  , component: Evolution },
+    { path: '/comunidades', component: Comunidades },
+    { path: '/somos'      , component: Somos },
+    { path: '/privacidad' , component: Privacidad },
   ]
 })
 

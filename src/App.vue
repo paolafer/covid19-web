@@ -20,6 +20,9 @@
                       <router-link to="/evolucion" class="nav-link">{{$t('evolution')}}</router-link>
                   </li>
                   <li class="nav-item">
+                      <router-link to="/comunidades" class="nav-link">{{$t('comunidades')}}</router-link>
+                  </li>
+                  <li class="nav-item">
                       <router-link to="/somos" class="nav-link">{{$t('who')}}</router-link>
                   </li>
 

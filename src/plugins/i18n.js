@@ -14,6 +14,7 @@ const messages = {
         seirModel: "SEIR Model",
         icuBeds : "ICU Beds",
         evolution : "COVID-19 Evolution",
+        comunidades : "Spanish regions",
         who: "Who are we",
         moreInfo : "More info in (spanish) ",
 
@@ -40,6 +41,15 @@ const messages = {
         casesLabel: "Daily number of cases",
         deathsCumLabel: "Total number of deaths",
         casesCumLabel: "Total number of cases",
+
+        //Comunidades
+        region: "Region",
+        altasTitle : "Total number of recovered patients",
+        altasLabel : "Total number of recovered patients",
+        hospitalTitle : "Total number of patients in hospitals",
+        hospitalLabel : "Total number of patients in hospitals",
+        icuTitle : "Total number of UCI patients",
+        icuLabel : "Total number of ICU patiens",
 
         //SEIR
         seirTitle: "<strong>Covid19</strong> evolution simulator using SEIR model",
@@ -77,6 +87,7 @@ const messages = {
         seirModel: "Modelo SEIR",
         icuBeds : "Camas UCI",
         evolution : "Evolucion COVID-19",
+        comunidades : "Comunidades autónomas",
         who: "Quiénes somos",
         moreInfo : "Más información en ",
 
@@ -104,6 +115,15 @@ const messages = {
         casesLabel     : "Número diario de casos",
         deathsCumLabel : "Número total de muertes",
         casesCumLabel  : "Número total de casos",
+
+        //Comunidades
+        region: "Comunidad autónoma",
+        altasTitle : "Número total de altas",
+        altasLabel : "Número total de altas",
+        hospitalTitle : "Número total de hospitalizados",
+        hospitalLabel : "Número total de hospitalizados",
+        icuTitle : "Número total de pacientes en UCI",
+        icuLabel : "Número total de pacientes en UCI",
 
         //SEIR
         seirTitle: "Simulador de la evolución del <strong>Covid19</strong> con modelo SEIR",
