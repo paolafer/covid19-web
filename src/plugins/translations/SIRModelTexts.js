@@ -65,7 +65,7 @@ In the coronavirus case, T ~7 days ( \\(\\gamma\\) ~1/7 recoveries per day).`,
       sirModelParagraph3:
         `A medida que la fracción de susceptibles disminuye, la fracción de infectados aumenta.
         Si los infectados no se recuperaran nunca, tendríamos simplemente que \\(dI/dt = \\beta SI\\).
-        Por otra parte, una parte de los infectados deja de serlo, con una tasa e recuperación \\(\\gamma\\) (la inversa del periodo de recuperación). Por tanto:`,
+        Por otra parte, una parte de los infectados deja de serlo, con una tasa de recuperación \\(\\gamma\\) (la inversa del periodo de recuperación). Por tanto:`,
 
       sirModelParagraph4:
         `Finalmente, el número de recuperados en función del tiempo es precisamente lo que le sustraemos del grupo de infectados, esto es:`,
