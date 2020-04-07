@@ -24,27 +24,27 @@ In the coronavirus case, T ~7 days ( \\(\\gamma\\) ~1/7 recoveries per day).`,
         `Finally, the number of recovered as a function of time is exactly the quantity that is subtracted from the infectious group, that is:`,
 
       sirModelParagraph5:
-        `Las ecuaciones (1), (2) y (3) especifican el modelo SIR más sencillo y definen como evolucionan con el tiempo las tres poblaciones (S, I y R) en función de dos parámetros, \\(\\beta\\) y \\(\\gamma\\).
-        Por otra parte, es más intuitivo usar el tiempo de infección (T = 1/\\(\\gamma\\) ) y el número de reproducción de la enfermedad, \\(R_0\\) que se define como el promedio de personas que contagia un infectado (\\(R_0 = \\beta/\\gamma\\)).`,
+        `Equations (1), (2) and (3) specify the simplest SIR model and define how the three populations (S, I and R) evolve over time depending on two parameters, \\(\\beta\\) and \\(\\gamma\\).
+       On the other hand, it is more intuitive to use the infection time (T = 1/\\(\\gamma\\) ) and the disease reproduction number, \\(R_0\\), which is defined by the average number of people infected by one sick person (\\(R_0 = \\beta/\\gamma\\)).`,
 
       sirModelParagraph6:
-        `El programa interactivo permite estudiar como evolucionan las tres poblaciones en función de T y \\(R_0\\).
-        Los resultados pueden presentarse en términos de la fracción relativa de la población, o en términos absolutos, especificando el valor de la población total, N.
-        También puede variarse la fracción de la población que está en cuarentena (medidas de contención).
-        Si el 100 % o más de la población está en cuarentena la epidemia desaparece, mientras que para valores entre 0 y 100 % la curva se aplana (también hay controles para visualizar el tiempo total de la infección).`,
+        `The interactive program enables the study of the evolution of the three populations according to T and \\(R_0\\).
+        The results can be presented in terms of the relative fraction of the population or in absolute terms if the total number of the population, N, is specified.
+        The fraction of people in quarantine can also be varied (containment measures).
+        If 100% of the population is in quarantine the epidemic disappears, whereas for values between 0% and 100% the curve flattens out (there are also controls in order to display the total infection time).`,
 
       sirModelParagraph7:
-        `Como ejemplo, podemos empezar por fijar los parámetros a los siguientes valores: \\(R_0=3.5, T = 5\\) días (consistentes con los valores determinados por diversos estudios epidemiológicos).
-        N = 47 millones (población aproximada de España), Q=0 (no hay población en cuarentena) y tf=100 (para ver bien la escala temporal).
-        El modelo nos dice que el pico de la infección se alcanza hacia el día 25 y el número de infectados ese día es de 1.5 millones.
-        Al cabo de 45 días las enfermedad se ha agotado, ya que la mayor parte de la población (42 millones) se ha contagiado y se ha recuperado (recordemos que SIR cuenta las defunciones como "recuperados").`,
+        `As an example, we can start by setting the parameters to the following values: \\(R_0=3.5, T = 5\\) days (which are consistent with the values determined by various epidemiological studies).
+        N = 47 million (approximate population of Spain), Q=0 (there is no population in quarantine) and tf=100 (to get a good look at the time scale).
+        The model tells us that the peak of infection is reached after approximately 25 days and the number of people infected on that day is 1.5 million.
+        After 45 days the disease will run out, as most of the population (42 million) has been infected and has recovered (remember that SIR counts deaths as “recovered”).`,
 
       sirModelParagraph8:
-        `Si ahora fijamos Q a un valor intermedio (Q = 50 %) y alargamos la escala de tiempo hasta 150 días (tf = 150) vemos que la curva de infección "se aplana", el pico llega mucho más tarde (a los 70 días) y es más bajo (medio millón).
-        Aún así, la fracción de la población que se infecta al final es alta (del orden del 70%, podemos verlo quitando el click de la casilla "absolute").`,
+        `If then we set Q at an intermediate value (Q = 50 %) and extend the time scale to 150 days (tf = 150) we can see that the infection curve “flattens out”, the peak is reached much later (at 70 days) and it is lower (half a million).
+        Even so, at the end the infected fraction of the population remains high (of the order of 70%, we can see it by removing the click of the “absolute” box).`,
 
       sirModelParagraph9:
-        `Para valores de Q lo bastante grandes (~70 %) podemos ver que la infección desaparece... pero no olvidar que esta versión simple del modelo no toma en cuenta un posible repunte.`,
+        `For large enough Q values (~70%) we can see that the infection disappears… but do not forget that this simple version of the model does not take into account a possible rebound.`,
     },
     'es': {
       sirModelParagraph1:
@@ -92,7 +92,6 @@ In the coronavirus case, T ~7 days ( \\(\\gamma\\) ~1/7 recoveries per day).`,
 
       sirModelParagraph9:
         `Para valores de Q lo bastante grandes (~70 %) podemos ver que la infección desaparece... pero no olvidar que esta versión simple del modelo no toma en cuenta un posible repunte.`,
-
     }
 };
 
