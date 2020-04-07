@@ -13,7 +13,7 @@ const messages = {
       seirModelParagraph3:
         `In this case, the population of S (susceptible) decreases in favour of the population of E (exposed), instead of going directly to I (infectious).
          We pass from E to I through a rate determined by the inverse of the incubation time (when the exposed reach that time, they become infectious and jump into the next category) and from I to R through a rate determined by the recovery time.
-        Therefore, SEIR is defined in terms of two parameters, which we already knew, that is, the recovery time (\\(\)\gamma  = 1/T\\), where T is the time necessary to recover, or, equally, the time during which one stays infectious) and the product of the contact rate and the transmission probability (\\(\\beta\\)) ---remember that the basic reproductive number is obtained from these two,  \\(R_0 = \\beta/\\gamma\\).
+        Therefore, SEIR is defined in terms of two parameters, which we already knew, that is, the recovery time (\\(\\gamma  = 1/T\\), where T is the time necessary to recover, or, equally, the time during which one stays infectious) and the product of the contact rate and the transmission probability (\\(\\beta\\)) ---remember that the basic reproductive number is obtained from these two,  \\(R_0 = \\beta/\\gamma\\).
         Let's add a third quantity, the infection rate, \\(\sigma\\) (\\(\\sigma = 1/T_i\\), where \\(T_i\\) is the incubation time of the disease, with a typical value of 5 days [Backer JA, Klinkenberg D, Wallinga J. The incubation period of 2019-nCoV infections among travellers from Wuhan, China. medRxiv 2020; published online Jan 28. DOI:10.1101/2020.01.27.20018986 ]).`,
 
       seirModelParagraph4:
@@ -48,7 +48,7 @@ const messages = {
       seirModelParagraph3:
         `En este caso, la población de S (susceptibles) disminuye a favor de la población E (expuestos) en lugar de hacerlo directamente a favor de I (infectados).
         De E a I se pasa mediante una tasa controlada por la inversa del tiempo de incubación (a medida que los expuestos alcanzan dicho tiempo se transforman en infecciosos y saltan de categoría) y de I a R se pasa mediante una tasa controlada por el tiempo de recuperación.
-        SEIR se define por tanto en términos de dos parámetros que ya conocíamos, a saber, la tasa de recuperación (\\(\)\gamma  = 1/T\\), donde T es el tiempo requerido para recuperarse, o lo que es lo mismo el tiempo que se permanece infeccioso) y el producto de la tasa de contacto y la probabilidad de transmisión (\\(\\beta\\)) ---recordemos que el número de reproducción básica se obtiene a partir de estos dos, \\(R_0 = \\beta/\\gamma\\).
+        SEIR se define por tanto en términos de dos parámetros que ya conocíamos, a saber, la tasa de recuperación (\\(\\gamma  = 1/T\\), donde T es el tiempo requerido para recuperarse, o lo que es lo mismo el tiempo que se permanece infeccioso) y el producto de la tasa de contacto y la probabilidad de transmisión (\\(\\beta\\)) ---recordemos que el número de reproducción básica se obtiene a partir de estos dos, \\(R_0 = \\beta/\\gamma\\).
         A estas cantidades añadimos una tercera, la tasa de infección, \\(\sigma\\) (\\(\\sigma = 1/T_i\\), donde \\(T_i\\) es el tiempo de incubación de la enfermedad, con un valor típico de 5 días [Backer JA, Klinkenberg D, Wallinga J. The incubation period of 2019-nCoV infections among travellers from Wuhan, China. medRxiv 2020; published online Jan 28. DOI:10.1101/2020.01.27.20018986 ]).`,
 
       seirModelParagraph4:
