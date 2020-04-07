@@ -2,11 +2,11 @@ const messages = {
     'en': {
       seirModelParagraph1:
         `SEIR introduces one more category between Susceptible and Infectious, which is Exposed.
-         In a viral desease such as COVID-19, the transmission process typically begins through the inoculation of a small number of pathogens.
+         In a viral disease such as COVID-19, the transmission process typically begins through the inoculation of a small number of pathogens.
          A period follows, when the virus replicates fast, under the immune system's radar.
          During this period the virus concentration is too low for the person who has contracted it to transmit it through the most frequent routes. Therefore, the person still does not infect other people (thus, it doesn't belong to the I category), but it is not "susceptible" anymore (since he has contracted the pathogen, therefore doesn't fit into S).
          This leads us to introduce a new category, which reflects the fraction of population that we call "Exposed".
-         Along with this category, we have an incubation time of the desease, Ti, and its inverse, the infection rate, \\(\\sigma = 1/Ti\\).`,
+         Along with this category, we have an incubation time of the disease, Ti, and its inverse, the infection rate, \\(\\sigma = 1/Ti\\).`,
       seirModelParagraph2:
         ` In the SIR model we had three equations that used to describe the transition within the S, I and R categories.
           In the SEIR model, we have one more equation, as shown in figure.`,
@@ -14,7 +14,7 @@ const messages = {
         `In this case, the population of S (susceptible) decreases in favour of the population of E (exposed), instead of going directly to I (infectious).
          We pass from E to I through a rate determined by the inverse of the incubation time (when the exposed reach that time, they become infectious and jump into the next category) and from I to R through a rate determined by the recovery time.
         Therefore, SEIR is defined in terms of two parameters, which we already knew, that is, the recovery time (\\(\)\gamma  = 1/T\\), where T is the time necessary to recover, or, equally, the time during which one stays infectious) and the product of the contact rate and the transmission probability (\\(\\beta\\)) ---remember that the basic reproductive number is obtained from these two,  \\(R_0 = \\beta/\\gamma\\).
-        Let's add a third quantity, the infection rate, \\(\sigma\\) (\\(\\sigma = 1/T_i\\), where \\(T_i\\) is the incubation time of the desease, with a typical value of 5 days [Backer JA, Klinkenberg D, Wallinga J. The incubation period of 2019-nCoV infections among travellers from Wuhan, China. medRxiv 2020; published online Jan 28. DOI:10.1101/2020.01.27.20018986 ]).`,
+        Let's add a third quantity, the infection rate, \\(\sigma\\) (\\(\\sigma = 1/T_i\\), where \\(T_i\\) is the incubation time of the disease, with a typical value of 5 days [Backer JA, Klinkenberg D, Wallinga J. The incubation period of 2019-nCoV infections among travellers from Wuhan, China. medRxiv 2020; published online Jan 28. DOI:10.1101/2020.01.27.20018986 ]).`,
 
       seirModelParagraph4:
         `The interactive program enables the study of the evolution of the three populations according to T, \\((T_i\\) and \\(R_0\\).

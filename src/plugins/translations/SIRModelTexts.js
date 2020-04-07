@@ -1,7 +1,7 @@
 const messages = {
     'en': {
       sirModelParagraph1:
-        `Let's start assuming that an infection such as COVID-19 is due to a pathogen that produces the illness during a certain amount of time, followed by immunity.
+        `Let's start assuming that an infection such as COVID-19 is due to a pathogen that produces the desease during a certain amount of time, followed by immunity.
          Let's now divide the population in three groups. "Susceptible" (S), "Infectious" (I) and "Recovered" (R).
          This division is also the name of the model, SIR [W. O. Kermack and A. G. McKendrick, Proc. R. Soc. A 115, 700 (1927).].
          The simplest version of the model does not take into account demography (births or deaths not related with the epidemic, as well as migration flows) and includes the deceased in the "Recovered" category.
@@ -11,7 +11,7 @@ const messages = {
 In the coronavirus case, T ~7 days ( \\(\\gamma\\) ~1/7 recoveries per day).`,
       sirModelParagraph2:
         ` The figure shows the movement among categories.
-          The step from S to I involves the illness transmission and is proportional to three quantities:
+          The step from S to I involves the desease transmission and is proportional to three quantities:
           the first two are the number of susceptible and the number of infectious (it's easy to understand this proportionality: if there are no susceptible to infection, or infectious transmitting it, there's no illness propagation).
         The third one is a quantity \\(\\beta\\) which represents the product of the contact rate (the number of times an infectious meets a susceptible) times the transmission probability.
         The number of people susceptible of being infected (S) decreases with time, and the number of infectious increases by the same factor. In mathematical notation, we write the variation of a quantity S with time (t) as dS/dt ("how much S changes with t"). Therefore:`,
